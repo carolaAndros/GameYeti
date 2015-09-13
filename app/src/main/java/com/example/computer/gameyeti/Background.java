@@ -8,6 +8,11 @@ public class Background
     private Bitmap image;
     private int x,y,dx;
 
+    public Background()
+    {
+
+    }
+
     public Background(Bitmap res)
     {
         image = res;

@@ -15,6 +15,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback
     private MainThread thread;
     private Background bg;
     private Player player;
+    private Victim victim;
 
     public GamePanel(Context context)
     {
@@ -52,6 +53,7 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback
     {
         bg = new Background(BitmapFactory.decodeResource(getResources(), R.drawable.grassbg1));
         player = new Player(BitmapFactory.decodeResource(getResources(), R.drawable.yeti), 65, 80, 3);
+        victim = new Victim(BitmapFactory.decodeResource(getResources(), R.drawable.cinghiale_chiaro), 300, GamePanel.HEIGHT/2);
         //we can safely start the game loop
         thread.setRunning(true);
         thread.start();
@@ -107,6 +109,8 @@ public class GamePanel extends SurfaceView implements SurfaceHolder.Callback
             final int savedState = canvas.save();
             canvas.scale(scaleFactorX, scaleFactorY);
             bg.draw(canvas);
+            // vittima
+            victim.draw(canvas);
             player.draw(canvas);
             canvas.restoreToCount(savedState);
         }
